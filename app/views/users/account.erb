@@ -1,5 +1,22 @@
 <h1>Welcome <%= @user.username.capitalize %></h1>
 
-<p>We are currently working on your account.</p>
+<h2>Dashboard:</h2>
 
-<p><a href="/logout">Log Out</a></p>
+<div class="conditions_content">
+    <table>
+        <ul>
+        <% @user.posts.each do |post| %>
+            <li><div class="conditions_list">
+                <p>Condition: <%= post.condition.capitalize %></p>
+                <p>Rating: <%= post.rating %></p>
+                <p><%= post.comments %></p>
+                <p><%= post.updated_at %></p>
+                <a href="/posts/<%= post.id %>/edit">Edit</a>
+                <a href="/posts/<%= post.id %>/delete/account">Delete</a>
+                </div>
+            </li>
+        <% end %>
+        </ul>
+    </table>
+</div>
+

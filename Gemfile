@@ -11,6 +11,8 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
+gem "chartkick"
+gem 'groupdate'
 
 group :test do
   gem 'rspec'

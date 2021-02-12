@@ -1,0 +1,12 @@
+<h2><%= @entries[0].condition.capitalize %></h2>
+<div class="conditions_content">
+<% @entries.each do |entry| %>
+    <div>
+        <%= entry.condition.capitalize %>
+        Rating: <%= entry.rating %>
+        <%= entry.comments %>
+        <%= entry.updated_at %>
+        <a href="/posts/<%= entry.id %>/edit">Edit</a>
+        <a href="/posts/<%= entry.id %>/delete/account">Delete</a>
+    </div>
+<% end %>

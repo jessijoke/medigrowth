@@ -1,0 +1,65 @@
+body {
+  height: 100vh;
+}
+
+.login_signup_container {
+  background-color: #5c00d8;
+  width: 100vw;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  text-align: center;
+}
+
+.login_signup {
+  padding: 25px;
+  width: 75%;
+  background-color: white;
+  border-radius: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.login_signup form p .signup_login_input {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 75%;
+  height: 30px;
+}
+
+.login_signup .purple_logo img {
+  width: 75%;
+}
+
+.purple_logo {
+  margin-bottom: 10px;
+}
+
+.submit_button {
+  border: 0;
+  margin-top: 10px;
+  height: 35px;
+  width: 76%;
+  background-color: yellow;
+}
+
+.login_signup_container .login_signup form p label.signup_login_labels {
+  text-align: left;
+}
+/*# sourceMappingURL=signup_login.css.map */

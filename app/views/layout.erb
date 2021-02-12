@@ -13,18 +13,48 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <link rel="stylesheet" href="/stylesheets/account.css" />
     <link rel="stylesheet" href="/stylesheets/reset.css" />
-    <link rel="stylesheet" href="/stylesheets/index.css" />
     <link rel="stylesheet" href="/stylesheets/layout.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@800&display=swap" rel="stylesheet">
   </head>
   <body>
     <div class="wrapper">
+      <div class="navigation">
 
+        <div class="options_menu">
+          <div class="logo"><img src="/images/logo.png" alt="Meditracker Logo"></div>
+          <div class="outer_button">
+                  <a href="/account"><div class="index_buttons">Dashboard</div></a>
+          </div>
+          <div><hr></div>
+          <div class="outer_button">
+              <a href="/create_post"><div class="index_buttons">New Entry</div></a>
+          </div>
+          <div><hr></div>
+          <div class="outer_button">
+              <a href="/condition"><div class="index_buttons">View by Condition</div></a>
+          </div>
+          <div><hr></div>
+          <div class="outer_button">
+              <a href="/progress"><div class="index_buttons">Progress</div></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
         <%= yield %>
-
+        <p><a href="/logout">Log Out</a></p>
+      </div>
       <footer class="branding">
         <small>&copy; 2021 <strong>Medigrowth</strong></small>
       </footer>
+
+    </div>
+
+
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>

@@ -3,12 +3,12 @@ require './config/environment'
 class UsersController < ApplicationController
 
   get "/" do
-    erb :index
+    erb :index, :layout => false
   end
 
   get "/signup" do
     if !logged_in?
-        erb :"/users/signup"
+        erb :"/users/signup", :layout => false
     else
         redirect to '/account'
     end
@@ -27,7 +27,7 @@ class UsersController < ApplicationController
 
   get "/login" do
     if !logged_in?
-        erb :"/users/login"
+        erb :"/users/login", :layout => false
     else
         redirect to '/account'
     end
