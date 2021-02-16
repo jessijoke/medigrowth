@@ -73,28 +73,19 @@ class PostsController < ApplicationController
             redirect to "/posts/#{params[:id]}/edit"
             else
             @post = Post.find_by_id(params[:id])
-            if @post && @post.user_id == session[:user_id]
-                if @post.update(condition: params[:condition].downcase.strip, rating: params[:rating], comments: params[:comments])
-                redirect to "/account"
+                if @post && @post.user_id == session[:user_id]
+                    if @post.update(condition: params[:condition].downcase.strip, rating: params[:rating], comments: params[:comments])
+                    redirect to "/account"
+                    else
+                    redirect to "/account"
+                    end
                 else
-                redirect to "/account"
+                    redirect to '/account'
                 end
-            else
-                redirect to '/account'
-            end
             end
         else
             redirect to '/'
         end
     end
 
-    get '/progress' do
-        @user = User.find(session[:user_id])
-        @entries = @user.posts
-        if logged_in?
-            erb :"/posts/progress"
-        else
-            redirect to '/'
-        end
-    end
 end

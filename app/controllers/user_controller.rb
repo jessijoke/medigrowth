@@ -18,10 +18,10 @@ class UsersController < ApplicationController
     if params[:username] == "" || params[:password] == ""
       redirect 'failure'
     else
-      @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-      @user.save
-      session[:user_id] = @user.id
-      redirect "/login"
+        @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+        @user.save
+        session[:user_id] = @user.id
+        redirect "/login"
     end
   end
 
@@ -44,8 +44,63 @@ class UsersController < ApplicationController
   end
 
   get '/account' do
+    if logged_in?
+        @user = User.find(session[:user_id])
+        erb :"users/account"
+    else
+        redirect to "/"
+    end
+  end
+
+  get '/doctor_account' do
+    if logged_in? && is_a_doctor?
+        @user = User.find(session[:user_id])
+        erb :"users/doctor_account"
+    elsif logged_in? && !is_a_doctor?
+        redirect to "/account"
+    else
+        redirect to "/"
+    end
+  end
+
+  get '/progress' do
     @user = User.find(session[:user_id])
-    erb :"users/account"
+    @entries = @user.posts
+    @conditions = @user.posts.map { |post| post.condition }.uniq
+    if logged_in?
+        erb :"/posts/progress"
+    else
+        redirect to '/'
+    end
+  end
+
+  get '/add_doctor' do
+      if logged_in?
+        @user = User.find(session[:user_id])
+        @doctor = Doctor.find(@user.doctor_id).username if @user.doctor_id != 0
+        erb :"/users/add_doctor"
+      else
+        redirect to '/'
+      end
+  end
+
+  patch '/add_doctor' do
+    if logged_in?
+        if logged_in?
+            @user = User.find(session[:user_id])
+            if @user && @user.id == session[:user_id]
+                if @user.update(doctor_id: params[:doctor])
+                redirect to "/add_doctor"
+                else
+                redirect to "/account"
+                end
+            end
+        else
+            redirect to '/'
+        end
+    else
+        redirect to '/'
+    end
   end
 
   get '/logout' do

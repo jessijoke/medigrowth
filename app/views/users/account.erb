@@ -1,13 +1,14 @@
-<h1>Welcome <%= @user.username.capitalize %></h1>
+<div class="intro_bar"> <h1>Welcome <%= @user.username.capitalize %></h1>
 
 <h2>Dashboard:</h2>
+</div>
 
 <div class="conditions_content">
     <table>
         <ul>
         <% @user.posts.each do |post| %>
             <li><div class="conditions_list">
-                <p>Condition: <%= post.condition.capitalize %></p>
+                <p>Tracking: <%= post.condition.capitalize %></p>
                 <p>Rating: <%= post.rating %></p>
                 <p><%= post.comments %></p>
                 <p><%= post.updated_at %></p>

@@ -32,7 +32,6 @@
 
         <div class="options_menu">
         <div class="logo"><img src="/images/logo.png" alt="Meditracker Logo"></div>
-        <% if is_a_doctor? %>
           <div class="outer_button">
                   <a href="/account"><div class="index_buttons"><i class="fas fa-clinic-medical"></i> Physician Dashboard</div></a>
           </div>
@@ -40,31 +39,7 @@
           <div class="outer_button">
                   <a href="/account"><div class="index_buttons"><i class="fas fa-clinic-medical"></i> View Patients</div></a>
           </div>
-        <% else %> 
-          <div class="outer_button">
-                  <a href="/account"><div class="index_buttons"><i class="fas fa-clinic-medical"></i> Dashboard</div></a>
-          </div>
-          <div><hr></div>
-          <div class="outer_button">
-              <a href="/create_post"><div class="index_buttons"><i class="fas fa-file-medical"></i>  New Entry</div></a>
-          </div>
-          <div><hr></div>
-          <div class="outer_button">
-              <a href="/condition"><div class="index_buttons"><i class="fas fa-book-medical"></i>  View by Condition</div></a>
-          </div>
-          <div><hr></div>
-          <div class="outer_button">
-              <a href="/progress"><div class="index_buttons"><i class="fas fa-chart-line"></i>  Progress</div></a>
-          </div>
-          <div><hr></div>
-          <div class="outer_button">
-              <a href="/add_doctor"><div class="index_buttons"><i class="fas fa-user-md"></i>  Add Doctor</div></a>
-          </div>
-          <div><hr></div>
-          <div class="outer_button">
-            <a href="/logout"><div class="index_buttons"><i class="fas fa-sign-out-alt"></i>  Log Out</div></a>
-          </div>
-        <% end %>
+        
         </div>
       </div>
 

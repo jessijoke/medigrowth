@@ -1,1 +1,5 @@
-<%= line_chart Post.group_by_day(:created_at).count %>
+<div class="intro_bar">View Progress</div>
+
+<div class="page_content">
+    <%= line_chart @entries.group(:condition).group_by_day(:created_at).sum(:rating) %>
+</div>

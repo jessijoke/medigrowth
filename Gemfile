@@ -11,8 +11,9 @@ gem 'shotgun'
 gem 'pry'
 gem 'bcrypt'
 gem 'tux'
-gem "chartkick"
 gem 'groupdate'
+gem 'minitest', '~> 5.14', '>= 5.14.3'
+gem 'chartkick', '~> 1.4', '>= 1.4.1'
 
 group :test do
   gem 'rspec'

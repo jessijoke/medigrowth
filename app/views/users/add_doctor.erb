@@ -1,0 +1,20 @@
+<div class="intro_bar"><h2>Add a Physician</h2></div>
+
+<% if @user.doctor != 0 && @user.doctor != nil %>
+<div class="intro_bar">Current Physician: <%= @doctor.capitalize %> </div>
+<% end %>
+
+
+<div class="page_content">
+    <div>Available Physicians:</div>
+    <% Doctor.all.each do |dr| %>
+        <div>
+        <form action="/add_doctor" method="POST">
+            <input id="hidden" type="hidden" name="_method" value="PATCH">
+            <input id="hidden" type="text" name="doctor" value="<%= dr.id %>" style="display: none;">
+            <input class="btn btn-primary" type="submit" value="<%= dr.username.capitalize %>">
+        </form>
+        </div>
+    <% end %>
+</div>
+

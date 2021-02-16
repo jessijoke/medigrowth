@@ -12,7 +12,6 @@ class ApplicationController < Sinatra::Base
   get "/failure" do
     erb :failure
   end
-  
 
   helpers do
 
@@ -21,7 +20,11 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-      @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+        @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id] || Doctor.find_by(id: session[:user_id]) if session[:user_id]
+    end
+
+    def is_a_doctor?
+      
     end
 
   end

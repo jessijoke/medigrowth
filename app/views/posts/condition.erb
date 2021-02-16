@@ -1,5 +1,9 @@
+<div class="intro_bar"><h2>View by Condition</h2></div>
+
+<ul>
 <% @conditions.each do |condition| %>
-    <div>
-        <a href='/condition/<%= condition %>'><%= condition.capitalize %></a>
-    </div>
+    <li class="page_content">
+            <a href='/condition/<%= condition %>'><%= condition.capitalize %></a>
+    </li>
 <% end %>
+</ul>
