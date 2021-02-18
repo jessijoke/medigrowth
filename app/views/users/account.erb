@@ -1,19 +1,32 @@
 <div class="intro_bar"> <h1>Welcome <%= @user.username.capitalize %></h1>
 
 <h2>Dashboard:</h2>
+<div class="account_buttons">
+    <a href="/create_post"><div class="new_entry_btn acc_button">New Entry</div></a>
+    <a href="/condition"><div class="view_by_condition_btn acc_button">View By Condition</div></a>
+    <a href="/progress"><div class="progress_btn acc_button">Progress</div></a>
+</div>
 </div>
 
 <div class="conditions_content">
     <table>
         <ul>
-        <% @user.posts.each do |post| %>
+        <% @user.posts.reverse_each do |post| %>
             <li><div class="conditions_list">
-                <p>Tracking: <%= post.condition.capitalize %></p>
-                <p>Rating: <%= post.rating %></p>
-                <p><%= post.comments %></p>
-                <p><%= post.updated_at %></p>
-                <a href="/posts/<%= post.id %>/edit">Edit</a>
-                <a href="/posts/<%= post.id %>/delete/account">Delete</a>
+                    <div class="condition_title"><p>Tracking: <%= post.condition.capitalize %></p></div>
+                        <div class="post_content">
+                            <div class="conditions_split_container spacing">
+                                <div class="rating_content"><p>Rating: <%= post.rating %></p></div>
+                                <div class="date_content"><p><%= post.updated_at.to_s.split(" ")[0] %></p></div>
+                            </div>
+
+                            <div class="spacing"><p>Comments: <%= post.comments %></p></div>
+
+                            <div class="conditions_split_container">
+                                <a href="/posts/<%= post.id %>/edit"><div class="edit_button">Edit</div></a>
+                                <a href="/posts/<%= post.id %>/delete/account"><div class="delete_button">Delete</div></a>
+                            </div>
+                        </div>
                 </div>
             </li>
         <% end %>

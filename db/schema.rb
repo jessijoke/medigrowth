@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210215052757) do
+ActiveRecord::Schema.define(version: 20210216035540) do
 
   create_table "doctors", force: :cascade do |t|
-    t.string "username"
-    t.string "email"
-    t.string "password"
-    t.string "password_digest"
+    t.string  "username"
+    t.string  "email"
+    t.string  "password"
+    t.string  "password_digest"
+    t.integer "is_a_doctor"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20210215052757) do
     t.string  "password"
     t.string  "password_digest"
     t.integer "doctor_id"
+    t.integer "is_a_doctor"
   end
 
 end

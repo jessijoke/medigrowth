@@ -3,7 +3,7 @@ body {
 }
 
 .login_signup_container {
-  background-color: #5c00d8;
+  background-color: #003da5;
   width: 100vw;
   height: 100vh;
   display: -webkit-box;
@@ -41,9 +41,11 @@ body {
   margin-bottom: 5px;
   width: 75%;
   height: 30px;
+  max-width: 500px;
 }
 
 .login_signup .purple_logo img {
+  max-width: 400px;
   width: 75%;
 }
 
@@ -56,7 +58,8 @@ body {
   margin-top: 10px;
   height: 35px;
   width: 76%;
-  background-color: yellow;
+  background-color: #ffea00;
+  max-width: 510px;
 }
 
 .login_signup_container .login_signup form p label.signup_login_labels {

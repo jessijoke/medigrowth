@@ -44,20 +44,10 @@ class UsersController < ApplicationController
   end
 
   get '/account' do
-    if logged_in?
+    if logged_in? && !is_a_doctor?
         @user = User.find(session[:user_id])
+        
         erb :"users/account"
-    else
-        redirect to "/"
-    end
-  end
-
-  get '/doctor_account' do
-    if logged_in? && is_a_doctor?
-        @user = User.find(session[:user_id])
-        erb :"users/doctor_account"
-    elsif logged_in? && !is_a_doctor?
-        redirect to "/account"
     else
         redirect to "/"
     end
@@ -67,7 +57,7 @@ class UsersController < ApplicationController
     @user = User.find(session[:user_id])
     @entries = @user.posts
     @conditions = @user.posts.map { |post| post.condition }.uniq
-    if logged_in?
+    if logged_in? && !is_a_doctor?
         erb :"/posts/progress"
     else
         redirect to '/'
@@ -75,9 +65,9 @@ class UsersController < ApplicationController
   end
 
   get '/add_doctor' do
-      if logged_in?
+      if logged_in? && !is_a_doctor?
         @user = User.find(session[:user_id])
-        @doctor = Doctor.find(@user.doctor_id).username if @user.doctor_id != 0
+        @doctor = Doctor.find(@user.doctor_id).username if @user.doctor_id != 0 && @user.doctor_id != nil
         erb :"/users/add_doctor"
       else
         redirect to '/'
@@ -85,7 +75,7 @@ class UsersController < ApplicationController
   end
 
   patch '/add_doctor' do
-    if logged_in?
+    if logged_in? && !is_a_doctor?
         if logged_in?
             @user = User.find(session[:user_id])
             if @user && @user.id == session[:user_id]

@@ -20,12 +20,21 @@ class ApplicationController < Sinatra::Base
     end
 
     def current_user
-        @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id] || Doctor.find_by(id: session[:user_id]) if session[:user_id]
+        if User.find_by(id: session[:user_id]) 
+          @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+        elsif Doctor.find_by(id: session[:user_id])
+          @current_user ||= Doctor.find_by(id: session[:user_id]) if session[:user_id]
+        end 
     end
 
     def is_a_doctor?
-      
+      #binding.pry
+      if current_user.is_a_doctor == 1
+        true
+      else
+        false
+      end
     end
-
+    
   end
 end

@@ -1,0 +1,5 @@
+<div class="intro_bar">View <%= @user.username.capitalize %> Progress</div>
+
+<div class="page_content">
+    <%= line_chart @entries.group(:condition).group_by_day(:created_at).sum(:rating) %>
+</div>

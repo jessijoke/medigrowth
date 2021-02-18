@@ -1,6 +1,10 @@
 require './config/environment'
 
 class DoctorsController < ApplicationController
+    configure do
+        set :erb, layout: :'doctor_layout'
+    end
+
     get "/signup_doctor" do
         if !logged_in?
             erb :"/users/signup_doctor", :layout => false
@@ -38,8 +42,50 @@ class DoctorsController < ApplicationController
         end
       end
 
-      get '/account_doctor' do
-        @user = Doctor.find(session[:user_id])
-        erb :"users/doctor_account"
+      get '/doctor_account' do
+        if logged_in? && is_a_doctor?
+            @doctor = Doctor.find(session[:user_id])
+            @patients = User.select { |u| u.doctor_id == session[:user_id] }
+            erb :"users/doctor_account"
+        else
+            redirect to "/"
+        end
       end
+
+      get '/patients' do
+        if logged_in? && is_a_doctor?
+            @doctor = Doctor.find(session[:user_id])
+            @entries = User.select { |u| u.doctor_id == session[:user_id] }
+            erb :"users/patients"
+        else
+            redirect to "/"
+        end
+      end
+
+      patch '/patients/:id/edit' do
+        if logged_in? && is_a_doctor?
+            @user = User.find_by_id(params[:id])
+            @doctor = Doctor.find_by_id(session[:user_id])
+            if @user && @doctor.id == session[:user_id]
+                if @user.update(doctor_id: nil)
+                redirect to "/patients"
+                else
+                redirect to "/patients"
+                end
+            end
+        else
+            redirect to '/'
+        end
+      end
+
+    get '/patients/:id' do
+      if logged_in? && is_a_doctor?
+        @user = User.find_by_id(params[:id])
+        @entries = @user.posts
+        erb :"users/view_individual_patient"
+      else
+        redirect to '/'
+      end
+    end
+
 end

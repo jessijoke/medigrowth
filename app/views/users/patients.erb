@@ -1,0 +1,17 @@
+<div class="intro_bar"><h2>View Patients</h2></div>
+
+<ul>
+<% @doctor.users.each do |user| %>
+    <li class="page_content">
+            <div>
+
+                <a href='/patients/<%= user.id %>'><%= user.username.capitalize %></a>
+                <form action="/patients/<%= user.id %>/edit" method="POST">
+                    <input id="hidden" type="hidden" name="_method" value="PATCH">
+                    <input id="hidden" type="text" name="doctor" value="<%= user.id %>" style="display: none;">
+                    <input class="btn btn-primary" type="submit" value="Remove <%= user.username.capitalize %> as a Patient">
+                </form>
+            </div>
+    </li>
+<% end %>
+</ul>
