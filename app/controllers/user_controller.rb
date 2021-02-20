@@ -45,8 +45,8 @@ class UsersController < ApplicationController
 
   get '/account' do
     if logged_in? && !is_a_doctor?
-        @user = User.find(session[:user_id])
-        
+        @user = current_user
+
         erb :"users/account"
     else
         redirect to "/"
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
   end
 
   get '/progress' do
-    @user = User.find(session[:user_id])
+    @user = current_user
     @entries = @user.posts
     @conditions = @user.posts.map { |post| post.condition }.uniq
     if logged_in? && !is_a_doctor?
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
 
   get '/add_doctor' do
       if logged_in? && !is_a_doctor?
-        @user = User.find(session[:user_id])
+        @user = current_user
         @doctor = Doctor.find(@user.doctor_id).username if @user.doctor_id != 0 && @user.doctor_id != nil
         erb :"/users/add_doctor"
       else
@@ -76,18 +76,14 @@ class UsersController < ApplicationController
 
   patch '/add_doctor' do
     if logged_in? && !is_a_doctor?
-        if logged_in?
-            @user = User.find(session[:user_id])
-            if @user && @user.id == session[:user_id]
-                if @user.update(doctor_id: params[:doctor])
+            user = current_user
+            if user && user.id == session[:user_id]
+                if user.update(doctor_id: params[:doctor])
                 redirect to "/add_doctor"
                 else
                 redirect to "/account"
                 end
             end
-        else
-            redirect to '/'
-        end
     else
         redirect to '/'
     end

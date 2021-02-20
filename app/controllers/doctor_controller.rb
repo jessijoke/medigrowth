@@ -66,12 +66,16 @@ class DoctorsController < ApplicationController
         if logged_in? && is_a_doctor?
             @user = User.find_by_id(params[:id])
             @doctor = Doctor.find_by_id(session[:user_id])
-            if @user && @doctor.id == session[:user_id]
-                if @user.update(doctor_id: nil)
-                redirect to "/patients"
-                else
-                redirect to "/patients"
-                end
+            if @user.doctor_id == current_user.id
+              if @user && @doctor.id == session[:user_id]
+                  if @user.update(doctor_id: nil)
+                  redirect to "/patients"
+                  else
+                  redirect to "/patients"
+                  end
+              end
+            else
+              redirect to "/patient"
             end
         else
             redirect to '/'
@@ -80,9 +84,14 @@ class DoctorsController < ApplicationController
 
     get '/patients/:id' do
       if logged_in? && is_a_doctor?
+        #check  if patient belongs to doctor
         @user = User.find_by_id(params[:id])
-        @entries = @user.posts
-        erb :"users/view_individual_patient"
+        if @user.doctor_id == current_user.id
+          @entries = @user.posts
+          erb :"users/view_individual_patient"
+        else
+          redirect to "/patients"
+        end
       else
         redirect to '/'
       end
