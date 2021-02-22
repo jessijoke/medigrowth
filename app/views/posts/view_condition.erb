@@ -1,4 +1,16 @@
-<div class="intro_bar"><h2><%= @entries[0].condition.capitalize %></h2></div>
+<div class="intro_bar">
+    <div class="intro_title">
+        <h2 class="title_shadow"><%= @entries[0].condition.capitalize %></h2>
+    </div>
+
+    <div class="account_buttons">
+        <a href="/create_post"><div class="new_entry_btn acc_button">New Entry</div></a>
+        <div class="divider acc_button">|</div>
+        <a href="/condition"><div class="view_by_condition_btn acc_button">View By Condition</div></a>
+        <div class="divider acc_button">|</div>
+        <a href="/progress"><div class="progress_btn acc_button">Progress</div></a>
+    </div>
+</div>
 
 <div class="page_content">
     <%= line_chart Post.where(:user_id => current_user.id, :condition => @entries[0].condition ).group_by_day(:created_at).sum(:rating) %>

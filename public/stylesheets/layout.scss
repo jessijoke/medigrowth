@@ -22,6 +22,22 @@ body {
     justify-content: space-between;
 }
 
+.intro_bar_dr {
+    height: 200px;
+    background-color: white;
+    background-image: url("/images/index/physician-log-in.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-weight: 500;
+    font-size: 20px;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+    border-radius: 14px 0px 0px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .page_content {
     background-color: white;
     padding: 20px;
@@ -55,6 +71,7 @@ body {
 .content {
     grid-column-start: 2;
     grid-column-end: 3;
+    min-height: 100vh;
 }
 
 .logo img {
@@ -80,4 +97,20 @@ body {
     height: 100%;
     border-radius: 15px 0px 0px 15px;
     background-color: #e6e6e6;
+}
+
+.branding {
+    text-align: center;
+    width: 100%;
+    font-size: 10px;
+    color: darkgray;
+    align-self: flex-end;
+}
+
+h1.title_shadow {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+h2.title_shadow {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }

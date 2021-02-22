@@ -1,12 +1,12 @@
 <div class="intro_bar">
     <div class="intro_title">
-        <h2>Add a Physician</h2>
+        <h2 class="title_shadow">Add a Physician</h2>
+        <% if @user.doctor != 0 && @user.doctor != nil %>
+            <div class="">Current Physician: <%= @doctor.capitalize %> </div>
+        <% end %>
     </div>
 </div>
 
-<% if @user.doctor != 0 && @user.doctor != nil %>
-<div class="intro_bar">Current Physician: <%= @doctor.capitalize %> </div>
-<% end %>
 
 
 <div class="page_content">
