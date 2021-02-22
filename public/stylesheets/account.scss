@@ -57,15 +57,30 @@ ul li {
     padding: 10px 0px 10px 0px;
 }
 
+.intro_title {
+    padding: 20px 0px 0px 20px;
+}
+
 .account_buttons {
+    background-color: #f4c902;
+    align-self: center;
+    justify-self: flex-end;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    font-size: 15px;
+    width: 100%;
 }
 
 .acc_button {
-    background-color: yellow;
     padding: 10px 20px 10px 20px;
     color: black;
-    margin-top: 10px;
+}
+
+.acc_button:hover {
+    font-weight: 800;
+}
+
+.divider {
+    color: #f49002;
 }

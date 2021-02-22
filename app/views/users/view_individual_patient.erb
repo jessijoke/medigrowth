@@ -1,5 +1,30 @@
-<div class="intro_bar">View <%= @user.username.capitalize %> Progress</div>
+<div class="intro_bar">
+    <div class="intro_title">
+        View <%= @user.username.capitalize %> Progress
+    </div>
+</div>
 
 <div class="page_content">
     <%= line_chart @entries.group(:condition).group_by_day(:created_at).sum(:rating) %>
+</div>
+
+<div class="conditions_content">
+    <table>
+        <ul>
+            <% @entries.each do |entry| %>
+                <li>
+                    <div class="conditions_list">
+                        <%= entry.condition.capitalize %>
+                        <p>Rating: <%= entry.rating %></p>
+                        <%= entry.comments %>
+                        <%= entry.updated_at %>
+                        <p>
+                            <a href="/posts/<%= entry.id %>/edit">Edit</a>
+                            <a href="/posts/<%= entry.id %>/delete/account">Delete</a>
+                        </p>
+                    </div>
+                </li>
+            <% end %>
+        </ul>
+    </table>
 </div>

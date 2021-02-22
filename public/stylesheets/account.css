@@ -60,7 +60,15 @@ ul li {
   padding: 10px 0px 10px 0px;
 }
 
+.intro_title {
+  padding: 20px 0px 0px 20px;
+}
+
 .account_buttons {
+  background-color: #f4c902;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: flex-end;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -68,15 +76,23 @@ ul li {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  font-size: 15px;
+  width: 100%;
 }
 
 .acc_button {
-  background-color: yellow;
   padding: 10px 20px 10px 20px;
   color: black;
-  margin-top: 10px;
+}
+
+.acc_button:hover {
+  font-weight: 800;
+}
+
+.divider {
+  color: #f49002;
 }
 /*# sourceMappingURL=account.css.map */

@@ -1,7 +1,9 @@
 <div class="intro_bar">
-    <h1>Welcome <%= @doctor.username.capitalize %></h1>
+    <div class="intro_title">
+        <h1>Welcome <%= @doctor.username.capitalize %></h1>
 
-    <h2>Physician Dashboard:</h2>
+        <h2>Physician Dashboard:</h2>
+    </div>
 </div>
 
 <% @patients.each do |patient| %>

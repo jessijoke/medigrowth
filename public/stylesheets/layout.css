@@ -1,17 +1,33 @@
 body {
   height: 100%;
   width: 100%;
-  background-color: #e6e6e6;
+  background-color: #042693;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: light;
 }
 
 .intro_bar {
+  height: 200px;
   background-color: white;
-  padding: 10px;
-  margin: 5px;
+  background-image: url("/images/index/patient-log-in.jpg");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  font-weight: 500;
+  font-size: 20px;
   -webkit-box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
           box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 14px 0px 0px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .page_content {
@@ -28,15 +44,13 @@ body {
   display: grid;
   -ms-grid-columns: 35% 65%;
       grid-template-columns: 35% 65%;
-  -ms-grid-rows: 100%;
-      grid-template-rows: 100%;
 }
 
 .navigation {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 2;
-  background-color: #003da5;
+  background-color: #042693;
 }
 
 .options_menu {
@@ -79,7 +93,13 @@ body {
 
 .index_buttons:hover {
   padding-left: 10px;
-  background-color: #ffea00;
+  background-color: #f4c902;
   color: black;
+}
+
+.content {
+  height: 100%;
+  border-radius: 15px 0px 0px 15px;
+  background-color: #e6e6e6;
 }
 /*# sourceMappingURL=layout.css.map */

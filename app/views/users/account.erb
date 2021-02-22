@@ -1,9 +1,14 @@
-<div class="intro_bar"> <h1>Welcome <%= @user.username.capitalize %></h1>
+<div class="intro_bar"> 
+    <div class="intro_title">
+        <h1>Welcome <%= @user.username.capitalize %></h1>
+        <h2>Dashboard:</h2>
+    </div>
 
-<h2>Dashboard:</h2>
 <div class="account_buttons">
     <a href="/create_post"><div class="new_entry_btn acc_button">New Entry</div></a>
+    <div class="divider acc_button">|</div>
     <a href="/condition"><div class="view_by_condition_btn acc_button">View By Condition</div></a>
+    <div class="divider acc_button">|</div>
     <a href="/progress"><div class="progress_btn acc_button">Progress</div></a>
 </div>
 </div>

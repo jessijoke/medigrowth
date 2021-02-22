@@ -1,69 +1,97 @@
-.header_image img {
-    width: 75%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+body {
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.signup_login {
-    width: 50%;
-    height: 100%;
-    background-color: #003da5;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.index_logo {
+    margin: 20px 0px 0px 20px;
+    max-width: 300px;
+    position: fixed;
 }
 
-.header_image {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
+.index_logo img {
+    max-width: 100%;
 }
 
 .index_container {
-    height: 100vh;
-    width: 100%;
     display: flex;
     flex-direction: row;
+}
+
+.patient_container {
+    width: 50%;
+    height: 100vh;
+    background-image: url("/images/index/patient-log-in.jpg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
 }
 
-.outer_button {
-    width: 90%;
-}
-
-.index_buttons {
-    display: block;
-    //border-radius: 10px;
-    padding: 5%;
-    margin: 3%;
-    text-align: center;
-    background-color: #ffea00;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 500;
-}
-
-.index_buttons:hover {
-    background-color: orange;
-}
-
-.signup_login a {
+.index_container .patient_container .index_button_container_user a {
     color: black;
     text-decoration: none;
 }
 
-.logo img {
-    width: 85%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 3%;
+.index_container .physician_container .index_button_container_physician a {
+    color: white;
+    text-decoration: none;
 }
 
-.animation_container {
-    position: absolute;
-    display: block;
-    background-color: transparent;
+.physician_container {
+    width: 50%;
+    height: 100vh;
+    background-image: url("/images/index/physician-log-in.jpg");
+    background-position: top center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    
 }
 
+.index_button_container_user {
+    margin: 0px 0px 50px 0px;
+    padding: 20px 0px 20px 0px;
+    min-width: 70%;
+    background-color: #f4c902;
+    text-align: center;
+}
+
+.index_button_container_physician {
+    margin: 0px 0px 50px 0px;
+    padding: 20px 0px 20px 0px;
+    min-width: 70%;
+    background-color: #042693;
+    text-align: center;
+}
+
+@media only screen 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+
+    .index_container {
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .patient_container {
+        height: 50vh;
+        width: 100%;
+    }
+
+    .physician_container {
+        height: 50vh;
+        width: 100%;
+        background-position: center;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .index_button_container_physician {
+        margin: 20px 0px 20px 0px;
+    }
+}

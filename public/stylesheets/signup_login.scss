@@ -2,24 +2,35 @@ body {
     height: 100vh;
 }
 
-
 .login_signup_container {
-    background-color: #003da5;
+    background-image: url("/images/index/patient-log-in.jpg");
+    background-position: center;
+    background-size: cover;
     width: 100vw;
     height: 100vh;
     display: flex;
     justify-content: center;
-    align-self: center;
+    align-items: flex-end;
+    text-align: center;
+}
+
+.login_signup_container_physician {
+    background-image: url("/images/index/physician-log-in.jpg");
+    background-position: center;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     text-align: center;
 }
 
 .login_signup {
+    margin-bottom: 10%;
     padding: 25px;
     width: 75%;
     background-color: white;
-    border-radius: 10px;
-    margin-top: auto;
-    margin-bottom: auto;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
@@ -42,15 +53,26 @@ body {
     margin-bottom: 10px;
 }
 
-.submit_button {
+.submit_button_user {
     border: 0;
     margin-top: 10px;
     height: 35px;
     width: 76%;
-    background-color: #ffea00;
+    background-color: #f4c902;
     max-width: 510px;
+}
+
+.submit_button_physician {
+    border: 0;
+    margin-top: 10px;
+    height: 35px;
+    width: 76%;
+    background-color: #042693;
+    max-width: 510px;
+    color: white;
 }
 
 .login_signup_container .login_signup form p label.signup_login_labels {
     text-align: left;
 }
+
