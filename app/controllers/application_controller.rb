@@ -7,11 +7,13 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, "growing_a_better_life"
+    register Sinatra::Flash
   end
 
   get "/failure" do
     erb :failure
   end
+
 
   helpers do
 

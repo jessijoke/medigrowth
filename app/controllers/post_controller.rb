@@ -26,7 +26,7 @@ class PostsController < ApplicationController
 
     get '/condition' do
         if logged_in?
-            @user = User.find(session[:user_id])
+            @user = current_user
             @conditions = @user.posts.map { |post| post.condition }.uniq
             erb :"posts/condition"
         else
@@ -36,7 +36,7 @@ class PostsController < ApplicationController
 
     get '/condition/:selection' do
         if logged_in?
-            @user = User.find(session[:user_id])
+            @user = current_user
             @entries = @user.posts.select { |post| post.condition == params[:selection] }
             erb :"posts/view_condition"
         else

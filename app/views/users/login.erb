@@ -27,6 +27,7 @@
                 <div class="purple_logo">
                     <img src="/images/purple_logo.png">
                 </div>
+                
                 <form action="/login" method="POST">
                     <p><label class="signup_login_labels">Username:</label></p>
                     <p><input type="text" name="username" placeholder="username" class="signup_login_input"></p>
@@ -35,6 +36,8 @@
                     <p><input type="password" name="password" placeholder="password" class="signup_login_input"></p>
                     <input type="submit" value="Log In" class="submit_button_user">
                 </form>
+                <br />
+                <%= flash[:login_failure] if flash[:login_failure] %>
         </div>
     </div>
     </body>

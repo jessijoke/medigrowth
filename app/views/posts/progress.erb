@@ -13,5 +13,12 @@
 </div>
 
 <div class="page_content">
-    <%= line_chart @entries.group(:condition).group_by_day(:created_at).sum(:rating) %>
+    <div class="chart_title">Daily Progress</div>
+    <%= line_chart @entries.group(:condition).group_by_day(:created_at).average(:rating) %>
+    <div class="chart_title">Weekly Progress</div>
+    <%= line_chart @entries.group(:condition).group_by_week(:created_at).average(:rating) %>
+    <div class="chart_title">Monthly Progress</div>
+    <%= line_chart @entries.group(:condition).group_by_month(:created_at).average(:rating) %>
+    <div class="chart_title">Yearly Progress</div>
+    <%= line_chart @entries.group(:condition).group_by_year(:created_at).average(:rating) %>
 </div>

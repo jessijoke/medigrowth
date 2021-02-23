@@ -63,7 +63,6 @@ body {
 }
 
 .wrapper {
-  height: 100vh;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 35% 65%;
@@ -101,6 +100,7 @@ body {
       grid-column-start: 2;
   grid-column-end: 3;
   min-height: 100vh;
+  max-height: 100%;
 }
 
 .logo img {

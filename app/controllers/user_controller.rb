@@ -39,7 +39,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect to "/account"
     else
-      redirect to "/failure"
+      flash[:login_failure] = "You failed to log in."
+      redirect to "/login"
     end
   end
 

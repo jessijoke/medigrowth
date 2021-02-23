@@ -15,11 +15,11 @@
 <form action="/posts/<%= @post.id %>" method="POST">
 <input id="hidden" type="hidden" name="_method" value="PATCH">
 
-  <p>Condition: <input type="text" name="condition" placeholder="<%= @post.condition %>"></p>
+  <p>Condition: <input type="text" name="condition" value="<%= @post.condition %>"></p>
 
         
-  <p>Rating: <input type="text" name="rating" placeholder="<%= @post.rating %>"></p>
+  <p>Rating: <input type="text" name="rating" value="<%= @post.rating %>"></p>
 
-  <p>Comments: <input type="text" name="comments" placeholder="<%= @post.comments %>"></p>
+  <p>Comments: <input type="text" name="comments" value="<%= @post.comments %>"></p>
   <input class="btn btn-primary" type="submit" value="submit">
 </form>

@@ -14,6 +14,7 @@ gem 'tux'
 gem 'groupdate'
 gem 'minitest', '~> 5.14', '>= 5.14.3'
 gem 'chartkick', '~> 1.4', '>= 1.4.1'
+gem 'sinatra-flash', '~> 0.3.0'
 
 group :test do
   gem 'rspec'
