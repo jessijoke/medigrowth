@@ -15,7 +15,7 @@ gem 'minitest', '~> 5.14', '>= 5.14.3'
 gem 'chartkick', '~> 1.4', '>= 1.4.1'
 gem 'sinatra-flash', '~> 0.3.0'
 
-group :development, :test do
+group :development do
   gem 'pry'
   gem 'sqlite3', '~> 1.3.6'
   gem 'rspec'
