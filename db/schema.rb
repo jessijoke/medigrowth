@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20210216035540) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "doctors", force: :cascade do |t|
     t.string  "username"
     t.string  "email"
@@ -38,7 +35,7 @@ ActiveRecord::Schema.define(version: 20210216035540) do
     t.string  "email"
     t.string  "password"
     t.string  "password_digest"
-    t.integer "doctor_id"
+    t.string  "doctor"
     t.integer "is_a_doctor"
   end
 
