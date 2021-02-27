@@ -4,11 +4,6 @@ require 'bundler/setup'
 require 'sinatra/flash'
 Bundler.require(:default, ENV['SINATRA_ENV'])
 
-ActiveRecord::Base.establish_connection(
-  :adapter => "sqlite3",
-  :database => "db/#{ENV['SINATRA_ENV']}.sqlite"
-)
-
 require './app/controllers/application_controller'
 require './app/controllers/doctor_controller'
 require './app/controllers/user_controller'
