@@ -5,6 +5,7 @@ class CreateDoctors < ActiveRecord::Migration
       t.string :email
       t.string :password
       t.string :password_digest
+      t.integer :is_a_doctor
     end
   end
 end
