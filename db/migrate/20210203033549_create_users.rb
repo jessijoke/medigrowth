@@ -5,8 +5,8 @@ class CreateUsers < ActiveRecord::Migration
       t.string :email
       t.string :password
       t.string :password_digest
-      t.integer :is_doctor
-      t.intger :doctor_id
+      t.integer :is_a_doctor
+      t.integer :doctor_id
     end
   end
 end
