@@ -6,7 +6,7 @@ class DoctorsController < ApplicationController
     end
 
     get "/signup_doctor" do
-        if !logged_in?
+        if !doctor_logged_in?
             erb :"/users/signup_doctor", :layout => false
         else
             redirect to '/doctor_account'
@@ -17,7 +17,7 @@ class DoctorsController < ApplicationController
         if params[:username] == "" || params[:password] == ""
              redirect 'failure'
         else
-            @user = Doctor.new(username: params[:username], email: params[:email], password: params[:password])
+            @user = Doctor.new(username: params[:username], email: params[:email], password: params[:password], is_a_doctor: 1)
             @user.save
             session[:user_id] = @user.id
             redirect "/login_doctor"
@@ -25,7 +25,7 @@ class DoctorsController < ApplicationController
       end
 
       get "/login_doctor" do
-        if !logged_in?
+        if !doctor_logged_in?
             erb :"/users/login_doctor", :layout => false
         else
             redirect to '/doctor_account'
@@ -43,7 +43,7 @@ class DoctorsController < ApplicationController
       end
 
       get '/doctor_account' do
-        if logged_in? && is_a_doctor?
+        if doctor_logged_in? && is_a_doctor?
             @doctor = Doctor.find(session[:user_id])
             @patients = User.select { |u| u.doctor_id == session[:user_id] }
             erb :"users/doctor_account"
@@ -53,7 +53,7 @@ class DoctorsController < ApplicationController
       end
 
       get '/patients' do
-        if logged_in? && is_a_doctor?
+        if doctor_logged_in? && is_a_doctor?
             @doctor = Doctor.find(session[:user_id])
             @entries = User.select { |u| u.doctor_id == session[:user_id] }
             erb :"users/patients"
@@ -63,7 +63,7 @@ class DoctorsController < ApplicationController
       end
 
       patch '/patients/:id/edit' do
-        if logged_in? && is_a_doctor?
+        if doctor_logged_in? && is_a_doctor?
             @user = User.find_by_id(params[:id])
             @doctor = Doctor.find_by_id(session[:user_id])
             if @user.doctor_id == current_user.id
@@ -83,7 +83,7 @@ class DoctorsController < ApplicationController
       end
 
     get '/patients/:id' do
-      if logged_in? && is_a_doctor?
+      if doctor_logged_in? && is_a_doctor?
         #check  if patient belongs to doctor
         @user = User.find_by_id(params[:id])
         if @user.doctor_id == current_user.id

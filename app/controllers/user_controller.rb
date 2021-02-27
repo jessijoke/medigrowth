@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if params[:username] == "" || params[:password] == ""
       redirect 'failure'
     else
-        @user = User.new(username: params[:username], email: params[:email], password: params[:password])
+        @user = User.new(username: params[:username], email: params[:email], password: params[:password], is_a_doctor: 0)
         @user.save
         session[:user_id] = @user.id
         redirect "/login"
@@ -91,7 +91,8 @@ class UsersController < ApplicationController
   end
 
   get '/logout' do
-    session.clear
+    session[:user_id] = nil
+    #session.clear
     redirect '/'
   end
 end
