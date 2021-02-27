@@ -41,16 +41,10 @@ GEM
     json (1.8.6)
     method_source (1.0.0)
     mini_mime (1.0.2)
-    mini_portile2 (2.5.0)
     minitest (5.14.4)
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
-    nokogiri (1.11.1)
-      mini_portile2 (~> 2.5.0)
-      racc (~> 1.4)
     nokogiri (1.11.1-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
     pg (0.21.0)
     pry (0.14.0)
@@ -118,9 +112,7 @@ GEM
       nokogiri (~> 1.8)
 
 PLATFORMS
-  ruby
   x86_64-darwin-19
-  x86_64-linux
 
 DEPENDENCIES
   activerecord (= 4.2.7.1)
