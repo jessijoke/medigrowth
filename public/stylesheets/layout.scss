@@ -174,3 +174,48 @@ h2.title_shadow {
     }
 
   }
+
+  @media screen 
+  and (max-width: 1024px)
+  and (-webkit-min-device-pixel-ratio: 1) {
+    body {
+    }
+
+    .wrapper {
+        overflow-x: hidden;
+        display: grid;
+        grid-template-columns: 100% 00%;
+        z-index: 1;
+    }
+
+    .wrapper.active {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        z-index: -1;
+    }
+
+    .account_buttons.active {
+        overflow: hidden;
+    }
+
+    .content {
+        overflow-x: hidden;
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+    
+    .navigation {
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 2;
+        grid-column-end: 3;
+        background-color: #042693;
+    }
+
+    .menu_button {
+        visibility: visible;
+    }
+
+  }
