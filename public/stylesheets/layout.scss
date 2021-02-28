@@ -135,11 +135,9 @@ h2.title_shadow {
   and (max-width: 1024px)
   and (-webkit-min-device-pixel-ratio: 1) {
     body {
-        overflow: hidden;
     }
 
     .wrapper {
-        overflow: hidden;
         display: grid;
         grid-template-columns: 100% 00%;
         z-index: 1;
@@ -156,7 +154,7 @@ h2.title_shadow {
     }
 
     .content {
-        overflow: hidden;
+        overflow-x: hidden;
         grid-column-start: 1;
         grid-column-end: 2;
         grid-row-start: 1;
