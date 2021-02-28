@@ -17,7 +17,7 @@ class DoctorsController < ApplicationController
         if params[:username] == "" || params[:password] == ""
              redirect 'failure'
         else
-            @user = Doctor.new(username: params[:username], email: params[:email], password: params[:password], is_a_doctor: 1)
+            @user = Doctor.new(username: params[:username].downcase, email: params[:email], password: params[:password], is_a_doctor: 1)
             @user.save
             session[:user_id] = @user.id
             redirect "/login_doctor"
@@ -33,7 +33,7 @@ class DoctorsController < ApplicationController
       end
     
       post "/login_doctor" do
-        @user = Doctor.find_by(username: params[:username])
+        @user = Doctor.find_by(username: params[:username].downcase)
         if @user && @user.authenticate(params[:password])
           session[:user_id] = @user.id
           redirect to "/doctor_account"

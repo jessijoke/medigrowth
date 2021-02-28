@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if params[:username] == "" || params[:password] == ""
       redirect 'failure'
     else
-        @user = User.new(username: params[:username], email: params[:email], password: params[:password], is_a_doctor: 0)
+        @user = User.new(username: params[:username].downcase, email: params[:email], password: params[:password], is_a_doctor: 0)
         @user.save
         session[:user_id] = @user.id
         redirect "/login"
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
   end
 
   post "/login" do
-    @user = User.find_by(username: params[:username])
+    @user = User.find_by(username: params[:username].downcase)
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
       redirect to "/account"
