@@ -186,12 +186,14 @@ h2.title_shadow {
         display: grid;
         grid-template-columns: 100% 00%;
         z-index: 1;
+        transition: grid-template-columns 0.3s ease;
     }
 
     .wrapper.active {
         display: grid;
         grid-template-columns: 20% 80%;
         z-index: -1;
+        transition: grid-template-columns 0.3s ease;
     }
 
     .account_buttons.active {
